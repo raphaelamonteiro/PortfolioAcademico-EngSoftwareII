@@ -1,0 +1,30 @@
+/* public/css/style.css */
+body {
+    background-color: #1a001a;
+    /* preto arroxeado escuro */
+    color: #cda4de;
+    /* roxo claro */
+    min-height: 100vh;
+    padding-top: 70px;
+    /* espaço pra navbar fixa */
+}
+
+.navbar {
+    background-color: #330033;
+    /* roxo bem escuro */
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 1000;
+}
+
+.navbar-brand img {
+    max-height: 40px;
+    border-radius: 50%;
+}
+
+.navbar-menu a.navbar-item:hover {
+    background-color: #660066;
+    color: #fff;
+}
