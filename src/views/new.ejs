@@ -1,0 +1,53 @@
+<%- include('partials/header') %>
+
+    <body class="has-background-dark has-text-white">
+        <section class="section">
+            <div class="container">
+                <h1 class="title has-text-white">Adicionar Novo Projeto</h1>
+
+                <form action="/projetos" method="POST">
+                    <div class="field">
+                        <label class="label has-text-white">Nome</label>
+                        <div class="control">
+                            <input class="input" type="text" name="nome" required>
+                        </div>
+                    </div>
+
+                    <div class="field">
+                        <label class="label has-text-white">Descrição</label>
+                        <div class="control">
+                            <textarea class="textarea" name="descricao" required></textarea>
+                        </div>
+                    </div>
+
+                    <div class="field">
+                        <label class="label has-text-white">Repositório (URL)</label>
+                        <div class="control">
+                            <input class="input" type="url" name="repositorio">
+                        </div>
+                    </div>
+
+                    <div class="field">
+                        <label class="label has-text-white">Vídeo (URL)</label>
+                        <div class="control">
+                            <input class="input" type="url" name="video">
+                        </div>
+                    </div>
+
+                    <div class="field">
+                        <label class="label has-text-white">Tecnologias</label>
+                        <div class="control">
+                            <input class="input" type="text" name="tecnologias" placeholder="Ex: React, Node.js, MySQL">
+                        </div>
+                    </div>
+
+                    <div class="field mt-5">
+                        <div class="control">
+                            <button class="button is-link">Salvar</button>
+                            <a href="/" class="button is-light">Cancelar</a>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </section>
+        <%- include('partials/footer') %>

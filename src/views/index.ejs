@@ -1,17 +1,80 @@
 <%- include('partials/header') %>
-
-    <section class="section">
-        <div class="container">
-            <h2 class="title has-text-centered has-text-purple">Bem-vindo ao meu portfólio!</h2>
-            <p class="has-text-centered">
-                Aqui você encontrará meus projetos e minha trajetória acadêmica.
-            </p>
-
-            <!-- Aqui seu código de projetos, por exemplo -->
-            <section id="projetos">
-                <!-- seus cards de projetos aqui -->
-            </section>
+    <!-- HERO -->
+    <section class="hero is-dark is-bold is-medium">
+        <div class="hero-body">
+            <div class="container has-text-centered">
+                <h1 class="title has-text-white">Olá, sou Rapha</h1>
+                <h2 class="subtitle has-text-light">Desenvolvedor Full Stack | Projetos Acadêmicos</h2>
+                <a href="/projetos/novo" class="button is-link is-light">Novo Projeto</a>
+            </div>
         </div>
     </section>
 
-    <%- include('partials/footer') %>
+    <!-- SOBRE MIM -->
+    <section class="section has-background-black">
+        <div class="container">
+            <h3 class="title has-text-white">Sobre mim</h3>
+            <p class="has-text-light">
+                Sou um desenvolvedor apaixonado por tecnologia, com foco em soluções práticas e inovadoras. Curioso,
+                autodidata e sempre disposto a aprender novas ferramentas.
+            </p>
+        </div>
+    </section>
+
+    <!-- SKILLS -->
+    <section class="section has-background-black-ter">
+        <div class="container">
+            <h3 class="title has-text-white">Skills</h3>
+            <div class="tags are-medium">
+                <span class="tag is-info">HTML</span>
+                <span class="tag is-info">CSS</span>
+                <span class="tag is-info">JavaScript</span>
+                <span class="tag is-info">React</span>
+                <span class="tag is-info">Node.js</span>
+                <span class="tag is-info">Python</span>
+                <span class="tag is-info">MySQL</span>
+                <span class="tag is-info">Flask</span>
+                <span class="tag is-info">PostgreSQL</span>
+                <span class="tag is-info">Power BI</span>
+                <span class="tag is-info">Figma</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- PROJETOS -->
+    <section class="section has-background-dark">
+        <div class="container">
+            <h3 class="title has-text-white">Meus Projetos</h3>
+            <div class="columns is-multiline">
+                <% projetos.forEach(p=> { %>
+                    <div class="column is-4">
+                        <div class="box">
+                            <h4 class="title is-5">
+                                <%= p.nome %>
+                            </h4>
+                            <p>
+                                <%= p.descricao %>
+                            </p>
+                            <% if (p.repositorio) { %>
+                                <a href="<%= p.repositorio %>" class="button is-small is-link mt-2"
+                                    target="_blank">Repositório</a>
+                                <% } %>
+                                    <% if (p.video) { %>
+                                        <a href="<%= p.video %>" class="button is-small is-info mt-2"
+                                            target="_blank">Vídeo</a>
+                                        <% } %>
+                                            <p class="mt-2"><strong>Tecnologias:</strong>
+                                                <%= p.tecnologias %>
+                                            </p>
+                                            <div class="buttons mt-3">
+                                                <a href="/projetos/editar/<%= p.id %>"
+                                                    class="button is-warning is-light">Editar</a>
+                                                <a href="/projetos/excluir/<%= p.id %>"
+                                                    class="button is-danger is-light">Excluir</a>
+                                            </div>
+                        </div>
+                    </div>
+                    <% }); %>
+            </div>
+        </div>
+    </section>
