@@ -1,47 +1,191 @@
+html {
+    scroll-behavior: smooth;
+}
+
+:root {
+    --roxo-pastel: #A294F9;
+    --roxo-pastel-claro: #CDC1FF;
+    --roxo-pastel-escuro: #433d8b;
+    --preto: #2E236C;
+    --cinza-box: #ddd2ff;
+    --branco: #fdf6ff;
+    --rosa-suave: #f4c3eb;
+}
+
+/* ===== BASE ===== */
+body {
+    font-family: 'Poppins', sans-serif;
+    background-color: var(--preto);
+    color: var(--branco);
+    line-height: 1.6;
+    margin: 0;
+    padding: 0;
+}
+
+/* ===== NAVBAR ===== */
 .navbar {
     background-color: var(--preto);
+    box-shadow: 0 2px 8px rgba(162, 148, 249, 0.15);
 }
 
 .navbar-item {
-    color: var(--roxo) !important;
+    color: var(--roxo-pastel);
     font-weight: 500;
+    transition: color 0.3s ease, background-color 0.3s ease;
 }
 
 .navbar-item:hover {
-    background-color: var(--roxo-escuro);
-    color: white !important;
+    background-color: var(--roxo-pastel-escuro);
+    color: var(--branco);
 }
 
 .navbar-burger span {
-    background-color: var(--roxo);
+    background-color: var(--roxo-pastel);
 }
 
-body {
-    font-family: 'Poppins', sans-serif;
-    background-color: #0e0e1a;
-    color: #fff;
+/* ===== HERO ===== */
+.has-animated-bg {
+    background: linear-gradient(135deg, var(--roxo-pastel-escuro), var(--preto));
+    position: relative;
+    overflow: hidden;
 }
 
-.hero {
-    background: linear-gradient(135deg, #4a148c, #2e003e);
+.has-animated-bg::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background-image: url('/images/bg-stars.png');
+    opacity: 0.08;
+    animation: backgroundMove 60s linear infinite;
+    z-index: 0;
+}
+
+.hero-body>.container {
+    position: relative;
+    z-index: 1;
+}
+
+@keyframes backgroundMove {
+    0% {
+        background-position: 0 0;
+    }
+
+    100% {
+        background-position: 1000px 1000px;
+    }
+}
+
+/* ===== BOTÕES ===== */
+.button {
+    transition: background-color 0.3s ease, color 0.3s ease, transform 0.15s ease;
+    border-radius: 8px;
+}
+
+.button:hover {
+    transform: scale(1.03);
 }
 
 .button.is-link {
-    background-color: #9c27b0;
+    background-color: var(--roxo-pastel);
+    color: var(--preto);
     border: none;
 }
 
 .button.is-link:hover {
-    background-color: #7b1fa2;
+    background-color: var(--roxo-pastel-escuro);
+    color: var(--branco);
 }
 
-.tag.is-info {
-    background-color: #7e57c2;
+/* ===== SOBRE (foto e texto) ===== */
+.minha-foto-wrapper {
+    max-width: 240px;
+    margin: 0 auto;
 }
 
-.box {
-    background-color: #1f1f2e;
-    color: #e0e0e0;
+.minha-foto {
+    border: 4px solid var(--roxo-pastel);
+    box-shadow: 0 0 12px rgba(124, 58, 237, 0.6);
     border-radius: 12px;
-    box-shadow: 0 0 8px #4a148c;
+    width: 100%;
+    height: auto;
+}
+
+/* ===== SKILLS ===== */
+.skills-box {
+    background-color: var(--cinza-box);
+    border-radius: 12px;
+    padding: 1.5rem;
+    box-shadow: 0 0 8px rgba(162, 148, 249, 0.25);
+    margin-top: 2rem;
+}
+
+.social-icons {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 10px;
+    margin-top: 1rem;
+}
+
+.tag.is-custom {
+    background-color: var(--roxo-pastel);
+    color: var(--preto);
+    margin: 4px 6px;
+    font-weight: 600;
+    transition: background-color 0.25s ease, box-shadow 0.25s ease;
+    border-radius: 6px;
+    padding: 0.3em 0.7em;
+    cursor: default;
+}
+
+.tag.is-custom:hover {
+    background-color: var(--roxo-pastel-claro);
+    color: var(--branco);
+    box-shadow: 0 0 8px var(--roxo-pastel-claro);
+    transform: scale(1.05);
+}
+
+/* ===== ÍCONES SOCIAIS ===== */
+.social-icons .button {
+    background-color: var(--roxo-pastel);
+    color: var(--preto);
+    margin-right: 10px;
+    border-radius: 8px;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.social-icons .button:hover {
+    background-color: var(--roxo-pastel-escuro);
+    color: var(--branco);
+}
+
+/* ===== BOX DE PROJETOS ===== */
+#projetos .box {
+    background-color: var(--preto);
+    color: var(--branco);
+    border-radius: 16px;
+    box-shadow: 0 0 10px rgba(162, 148, 249, 0.15);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+#projetos .box:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 0 15px rgba(162, 148, 249, 0.3);
+}
+
+/* ===== FOOTER ===== */
+.footer {
+    background-color: var(--preto);
+    border-top: 2px solid #b983ff33;
+    box-shadow: 0 -2px 12px rgba(185, 131, 255, 0.15);
+    padding: 2rem 1rem;
+    color: var(--roxo-pastel);
+    font-size: 0.95rem;
+    text-align: center;
+}
+
+@media screen and (max-width: 768px) {
+    .footer {
+        font-size: 0.85rem;
+    }
 }
