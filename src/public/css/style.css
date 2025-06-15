@@ -3,10 +3,10 @@ html {
 }
 
 :root {
-    --roxo-pastel: #A294F9;
+    --roxo-pastel: #848cbc;
     --roxo-pastel-claro: #CDC1FF;
-    --roxo-pastel-escuro: #433d8b;
-    --preto: #2E236C;
+    --roxo-pastel-escuro: #64668c;
+    --preto: #060607;
     --cinza-box: #ddd2ff;
     --branco: #fdf6ff;
     --rosa-suave: #f4c3eb;
@@ -22,10 +22,39 @@ body {
     padding: 0;
 }
 
+/*🎨 Cores utilitárias */
+.has-text-purple-light {
+    font-size: 2rem;
+    color: var(--roxo-pastel-claro);
+}
+
+
+.has-text-purple {
+    color: var(--roxo-pastel) !important;
+}
+
+/* Botões principais */
+.button.is-info {
+    background-color: var(--roxo-pastel);
+    /* rosa claro */
+    border-color: var(--roxo-pastel-escuro);
+    color: white;
+    /* fonte branca */
+    transition: background-color 0.3s ease, border-color 0.3s ease;
+}
+
+.button.is-info:hover {
+    background-color: var(--roxo-pastel-escuro);
+    /* rosa um pouco mais escuro no hover */
+    border-color: #8c67db;
+    box-shadow: 0 0 12px rgba(161, 97, 239, 0.6);
+    color: white;
+    /* mantém a fonte branca no hover */
+}
+
 /* ===== NAVBAR ===== */
 .navbar {
     background-color: var(--preto);
-    box-shadow: 0 2px 8px rgba(162, 148, 249, 0.15);
 }
 
 .navbar-item {
@@ -43,24 +72,29 @@ body {
     background-color: var(--roxo-pastel);
 }
 
-/* ===== HERO ===== */
-.has-animated-bg {
-    background: linear-gradient(135deg, var(--roxo-pastel-escuro), var(--preto));
+/* Hero section */
+.custom-hero {
+    background-image: url('/images/fundo.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
     position: relative;
-    overflow: hidden;
 }
 
-.has-animated-bg::before {
+.custom-hero::before {
     content: "";
     position: absolute;
-    inset: 0;
-    background-image: url('/images/bg-stars.png');
-    opacity: 0.08;
-    animation: backgroundMove 60s linear infinite;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(11, 12, 26, 0.85);
+
+    /* Camada roxinha por cima,rgba(13, 14, 32, 255) */
     z-index: 0;
 }
 
-.hero-body>.container {
+.custom-hero .hero-body {
     position: relative;
     z-index: 1;
 }
